@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How Long Have We Been Together?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: pink;
+        font-family: 'Dancing Script', cursive;
+        text-align: center;
+        color: white;
+      }
+
+      h1 {
+        font-size: 35px;
+        margin-top: 20px;
+        color: black;
+      }
+      p {
+        color: black;
+      }
+
+      .content {
+        margin-top: 35px;
+        font-size: 22px;
+      }
+
+      .time-info {
+        font-size: 20px;
+        margin-top: 20px;
+      }
+
+      .countdown {
+        font-size: 40px;
+        margin-top: 40px;
+        font-weight: bold;
+      }
+
+      .countdown div {
+        display: inline-block;
+        margin: 10px;
+        background-color: #ff4d8d;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .countdown span {
+        font-size: 40px;
+        color: black;
+        display: block;
+      }
+
+      .countdown-label {
+        font-size: 25px;
+        margin-top: 5px;
+      }
+
+      .info {
+        margin-top: 30px;
+      }
+
+      a {
+        color: #ff4d8d;
+        font-size: 30px;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .bbtok {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      img {
+        margin-top: 1rem;
+        width: 82px;
+        height: 85px;
+        border-radius: 50%;
+        border:2px solid hotpink;
+        border-style: dashed;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>How long have we been together?</h1>
+    <div class="bbtok">
+     <img src="pictures/bbtok.jpg">
+     <p>❤️</p>
+     <img src="pictures/ryel id.jpg">
+   </div>
+    <div class="content">
+      <p>We’ve been in love since October 10, 2022.</p>
+      <div class="time-info">
+        <p><strong>Time together:</strong> <span id="years-months"></span></p>
+      </div>
+
+      <div class="countdown">
+        <p>Time passed since our love began:</p>
+        <div>
+          <span id="days">00</span>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div>
+          <span id="hours">00</span>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div>
+          <span id="minutes">00</span>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div>
+          <span id="seconds">00</span>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+
+      <div class="info">
+        <p>Stay in love forever! ❤️</p>
+        <a href="login.html" style="margin-right: 3rem;">back</a>
+        <a href="mylove.html">Next</a>       
+      </div>
+    </div>
+
+    <script>
+      const startDate = new Date("October 10, 2022 00:00:00").getTime();
+
+      function calculateTime() {
+        const currentDate = new Date().getTime();
+        const difference = currentDate - startDate;
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        // Update the displayed values
+        document.getElementById("days").textContent = days < 10 ? `0${days}` : days;
+        document.getElementById("hours").textContent = hours < 10 ? `0${hours}` : hours;
+        document.getElementById("minutes").textContent = minutes < 10 ? `0${minutes}` : minutes;
+        document.getElementById("seconds").textContent = seconds < 10 ? `0${seconds}` : seconds;
+      }
+
+      // Initially update
+      calculateTime();
+
+      // Then update every second
+      setInterval(calculateTime, 1000);
+    </script>
+  </body>
+</html>

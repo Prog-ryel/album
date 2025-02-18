@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Will You Be My Valentine?</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: pink;
+}
+
+h1 {
+  font-size: 20px;
+}
+body, .wybmv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.wybmv,
+.yay {
+  width: 50%;
+  height: 90vh;
+}
+
+.btn_wrap {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+#yes {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  color: #8E0DF1;
+  background-color: rgb(55, 255, 0);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#no {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  background-color: rgb(255, 0, 0);
+  font-size: 20px;
+  cursor: pointer;
+}
+img {
+  width: 60vh;
+  height: 55vh;
+  border-radius: 50%;
+  border: 1px solid hotpink;
+}
+a {
+  text-decoration: none;
+}
+    </style>
+  </head>
+  <body>
+    <div class="wybmv">
+      <img src="bears-hug-love-you.gif" />
+      <h1>Will You Be My bb forever 😘?</h1>
+      <div class="btn_wrap">
+        <button id="yes"><a href="month.html">Yes</a></button>
+        <button id="no">No</button>
+      </div>
+    </div>
+    <script>
+      const YesBtn = document.getElementById("yes");
+const NoBtn = document.getElementById("no");
+
+NoBtn.style.transition = "top 0.2s, left 0.2s";
+
+NoBtn.addEventListener("mouseover", () => {
+  const maxWidth = window.innerWidth - NoBtn.offsetWidth;
+  const maxHeight = window.innerHeight - NoBtn.offsetHeight;
+  const randomX = Math.round(Math.random() * maxWidth);
+  const randomY = Math.round(Math.random() * maxHeight);
+
+  NoBtn.style.position = "absolute";
+  NoBtn.style.left = `${randomX}px`;
+  NoBtn.style.top = `${randomY}px`;
+});
+
+YesBtn.addEventListener("click", () => {
+  window.location.href = "month.html";
+});
+    </script>
+  </body>
+</html>
