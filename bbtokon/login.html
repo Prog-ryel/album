@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added viewport meta tag for responsiveness -->
     <title>Login Calculator</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -17,6 +18,7 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        flex-direction: column; /* Stack elements vertically for small screens */
       }
 
       .login-box {
@@ -27,6 +29,8 @@
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         text-align: center;
         margin-left: 20px;
+        width: 100%;
+        max-width: 400px; /* Limit the max width for better appearance */
       }
 
       .password-input {
@@ -64,7 +68,6 @@
         width: 140px;
         height: 205px;
         border-radius: 10px;
-        
         background: white;
         display: flex;
         justify-content: center;
@@ -79,28 +82,55 @@
         border-radius: 10px;
         border: 2px solid #ff27b7;
       }
+
       .login-box-container {
         padding-left: 4.4rem;
         border-radius: 10px;
-        width: 40%;
-        height: 73%;
+        width: 100%;
+        height: auto; /* Allow the height to adjust for mobile */
         border: 2px solid #ff27b7;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column; /* Stack content vertically for mobile */
       }
+
       .input-group {
         position: relative;
         display: flex;
         align-items: center;
-        
-}
-.input-group i:first-child {
-       position: absolute;
-       left: 15px;
-       color: #666;
-       margin-bottom: 10px;
-}
+      }
+
+      .input-group i:first-child {
+        position: absolute;
+        left: 15px;
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      /* Mobile specific styles */
+      @media (max-width: 600px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .side-image {
+          display: none; /* Hide the side image on mobile for more space */
+        }
+
+        .login-box-container {
+          padding-left: 0;
+          width: 80%;
+        }
+
+        .login-box {
+          width: 100%;
+        }
+
+        .keypad button {
+          font-size: 16px; /* Make buttons smaller on mobile */
+        }
+      }
 
     </style>
   </head>
@@ -144,14 +174,14 @@
       }
       
       function checkPassword() {
-  const password = document.getElementById("password").value;
-  if (password === "131993") {
-    window.location.href = "year.html"; // Redirect to mylove.html
-  } else {
-    alert("Incorrect Password");
-    clearPassword();
-  }
-}
+        const password = document.getElementById("password").value;
+        if (password === "131993") {
+          window.location.href = "year.html"; // Redirect to mylove.html
+        } else {
+          alert("Incorrect Password");
+          clearPassword();
+        }
+      }
 
     </script>
   </body>
